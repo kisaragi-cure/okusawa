@@ -157,6 +157,12 @@ background-color: #ffffff;
 <div id="mg06-05b" style="position: absolute; top: 693px; left:51px; font-size:13pt; "></div>
 <div id="mg06-05c" style="position: absolute; top: 693px; left:151px; font-size:13pt; color:#FF0000; "></div>
 
+<!北千束-大岡山>
+<div id="om05-06d" style="position: absolute; top: -100px; left:-100px;"><input type="text"  id = "om05-06" disabled / name="address" size="14" value=""　></div>
+<div id="om05-6e" style="position: absolute; top: 483px; left:21px; font-size:13pt; "></div>
+<div id="om05-06b" style="position: absolute; top: 483px; left:41px; font-size:13pt; "></div>
+<div id="om05-06c" style="position: absolute; top: 483px; left:141px; font-size:13pt; color:#FF0000; "></div>
+
 <div style="position: absolute; top: 440px; left:300px; font-size:18pt"><p>大岡山</p></div>
 <div id="mg06-1ad" style="position: absolute; top: -100px; left:-100px;"><input type="text"  id = "mg06-1a" disabled / name="address" size="14" value=""　></div>
 <div id="mg06-1" style="position: absolute; top: 541px; left:268px; font-size:13pt; "></div>
@@ -167,6 +173,15 @@ background-color: #ffffff;
 <div id="mg06-4b" style="position: absolute; top: 693px; left:288px; font-size:13pt; "></div>
 <div id="mg06-4c" style="position: absolute; top: 693px; left:388px; font-size:13pt; color:#FF0000; "></div>
 
+<div id="om06-2ad" style="position: absolute; top: -100px; left:-100px;"><input type="text"  id = "om06-2a" disabled / name="address" size="14" value=""　></div>
+<div id="om06-2" style="position: absolute; top: 600px; left:268px; font-size:13pt; "></div>
+<div id="om06-2b" style="position: absolute; top: 600px; left:288px; font-size:13pt; "></div>
+<div id="om06-2c" style="position: absolute; top: 600px; left:388px; font-size:13pt; color:#FF0000; "></div>
+<div id="om06-3ad" style="position: absolute; top: -100px; left:-100px;"><input type="text"  id = "om06-3a" disabled / name="address" size="14" value=""　></div>
+<div id="om06-3" style="position: absolute; top: 636px; left:268px; font-size:13pt; "></div>
+<div id="om06-3b" style="position: absolute; top: 636px; left:288px; font-size:13pt; "></div>
+<div id="om06-3c" style="position: absolute; top: 636px; left:388px; font-size:13pt; color:#FF0000; "></div>
+
 <!大岡山-奥沢>
 <div id="mg06-07d" style="position: absolute; top: -100px; left:-100px;"><input type="text"  id = "mg06-07" disabled / name="address" size="14" value=""　></div>
 <div id="mg06-7e" style="position: absolute; top: 541px; left:456px; font-size:13pt; "></div>
@@ -176,6 +191,12 @@ background-color: #ffffff;
 <div id="mg07-6e" style="position: absolute; top: 579px; left:556px; font-size:13pt; "></div>
 <div id="mg07-06b" style="position: absolute; top: 579px; left:576px; font-size:13pt; "></div>
 <div id="mg07-06c" style="position: absolute; top: 579px; left:676px; font-size:13pt; color:#FF0000; "></div>
+
+<!緑が丘-大岡山>
+<div id="om07-06d" style="position: absolute; top: -100px; left:-100px;"><input type="text"  id = "om07-06" disabled / name="address" size="14" value=""　></div>
+<div id="om07-6e" style="position: absolute; top: 763px; left:536px; font-size:13pt; "></div>
+<div id="om07-06b" style="position: absolute; top: 763px; left:556px; font-size:13pt; "></div>
+<div id="om07-06c" style="position: absolute; top: 763px; left:656px; font-size:13pt; color:#FF0000; "></div>
 
 <div style="position: absolute; top: 290px; left:660px; font-size:16pt"><p>(自由が丘)</p></div>
 <div id="ty07-1ad" style="position: absolute; top: -100px; left:-100px;"><input type="text"  id = "ty07-1a" disabled / name="address" size="14" value=""　></div>
@@ -188,6 +209,10 @@ background-color: #ffffff;
 <div id="ty07-2c" style="position: absolute; top: 416px; left:761px; font-size:13pt; color:#FF0000; "></div>
 
 <div style="position: absolute; top: 710px; left:745px; font-size:16pt"><p>(緑が丘)</p></div>
+<div id="om07-3ad" style="position: absolute; top: -100px; left:-100px;"><input type="text"  id = "om07-3a" disabled / name="address" size="14" value=""　></div>
+<div id="om07-3" style="position: absolute; top: 763px; left:706px; font-size:13pt; "></div>
+<div id="om07-3b" style="position: absolute; top: 763px; left:726px; font-size:13pt; "></div>
+<div id="om07-3c" style="position: absolute; top: 763px; left:826px; font-size:13pt; color:#FF0000; "></div>
 
 <!自由が丘-田園調布>
 <div id="ty07-08d" style="position: absolute; top: -100px; left:-100px;"><input type="text"  id = "ty07-08" disabled / name="address" size="14" value=""　></div>
@@ -690,7 +715,7 @@ var data = JSON.parse(request.responseText);
 
       len = JSON.stringify(data.trains.length) ;
 
-	let nameText = document.getElementById('ty01-3a');
+	let nameText = document.getElementById('mg01-1a');
 
 ty99.value = "表示試験" ;
 
@@ -2102,8 +2127,10 @@ case '"都"':
 	}
 	break;
 case 'null':
+	if (hensei == "00" || hensei == "null"){
 	sha = "　　" ;
 	hensei = "　" ;
+	}
 	break;
 }
 
@@ -2814,7 +2841,7 @@ let info = '';
 
       len = JSON.stringify(data3.trains.length) ;
 
-	let nameText = document.getElementById('ty01-3a');
+	let nameText = document.getElementById('mg01-1a');
 
 
 for ( n = 0; n < len; n++) {
@@ -3115,6 +3142,11 @@ case '"都"':
 	hensei =  hensei + ")" ;
 	}
 	break;
+case '""':
+	sha = "(K" ;
+	hensei = hensei + ")" ;
+	break;
+
 case 'null':
 	sha = "　　" ;
 	hensei = "　" ;
@@ -3307,7 +3339,513 @@ switch (cars) {
 
 request3.send(null);
 
+/////////////////////////////////////ここから大井町線
 
+var request4 = new XMLHttpRequest();
+request4.open("GET", "https://tokyu-tid.s3.amazonaws.com/oimachi.json", true);
+request4.responseType = "text";
+
+request4.onload = () => {
+  if (request4.readyState === request4.DONE) {
+    if (request4.status === 200) {
+var data4 = JSON.parse(request4.responseText);
+      console.log(data4);
+
+//在線情報の処理
+let info = '';
+      let len = '';
+
+      let kind = '';
+      let unban = '';
+      let des = '';
+      let stid = '';
+      let scid = '';
+      let trid = '';
+      let sha = '';
+      let hensei = '';
+      let delay = '';
+      let line = '';
+      let cars = '';
+      let dai = 0;
+      let n = 1;
+
+      len = JSON.stringify(data4.trains.length) ;
+
+	let nameText = document.getElementById('mg01-1a');
+
+
+for ( n = 0; n < len; n++) {
+
+dai = 0;
+
+//種別設定
+      kind= JSON.stringify(data4.trains[n].kind); 
+	switch (kind) {
+case '"普"':
+	kind = "各";
+	break;
+case '"急"':
+	kind = "急";
+	break;
+case '"特"':
+	kind = "特";
+	break;
+case '"通"':
+	kind = "通";
+	break;
+case '"Ｇ"':
+	kind = "Ｇ";
+	break;
+case '"回"':
+	kind = "回";
+	break;
+case 'null':
+	kind = "　";
+	break;
+}
+
+//行先設定
+      des= JSON.stringify(data4.trains[n].destination_station_code) ;
+	switch (des) {
+case '51':
+	des = "大";
+	break;
+case '74':
+	des = "溝";
+	break;
+case '58':
+	des = "岡";
+	break;
+case '75':
+	des = "梶";
+	break;
+case '77':
+	des = "奥";
+	break;
+case '78':
+	des = "鷺";
+	break;
+case '84':
+	des = "自";
+	break;
+case '86':
+	des = "長";
+	break;
+case '88':
+	des = "武";
+	break;
+case '89':
+	des = "住";
+	break;
+case '90':
+	des = "日";
+	break;
+case '91':
+	des = "林";
+	break;
+case '93':
+	des = "菊";
+	break;
+case '98':
+	des = "横";
+	break;
+case '103':
+	des = "元";
+	break;
+case '108':
+	des = "新";
+	break;
+case '111':
+	des = "相";
+	break;
+case '129':
+	des = "蒲";
+	break;
+case '135':
+	des = "新";
+	break;
+case '0':
+	des = "―";
+	break;
+}
+
+      unban = JSON.stringify(data4.trains[n].operation_number) ;
+      sha= JSON.stringify(data4.trains[n].affiliation) ;
+//所属不一致判定
+if (sha != 'null'){
+        if (unban < 100){
+		if (sha != '"急"'){
+			if (sha != '"み"'){
+			dai = 1;
+			}
+		}
+} else if (unban < 200){
+		if (sha != '"西"'){
+		dai = 1;
+		}
+} else if (unban < 300){
+		if (sha != '"急"'){
+		dai = 1;
+		}
+} else if (unban < 400){
+		if (sha != '"南"'){
+		dai = 1;
+		}
+} else if (unban < 500){
+		if (sha != '"都"'){
+		dai = 1;
+		}
+} else if (unban < 600){
+		if (sha != '"南"'){
+		dai = 1;
+		}
+} else if (unban < 700){
+		if (sha != '"相"'){
+		dai = 1;
+		}
+} else if (unban < 800){
+		if (sha != '"副"'){
+		dai = 1;
+		}
+} else if (unban < 900){
+		if (sha != '"東"'){
+		dai = 1;
+		}
+} else if (unban < 999){
+		if (sha != '"相"'){
+		dai = 1;
+		}
+} 
+}
+
+//運番設定
+	if (unban < 200){
+
+} else if(unban < 210){
+unban = "0" + (unban - 200)  + "K" ;
+} else if(unban < 299){
+unban = (unban - 200) + "K" ;
+} else if(unban < 310){
+unban = "0" + (unban - 300)  + "S" ;
+} else if(unban < 399){
+unban = (unban - 300) + "S" ;
+} else if(unban < 410){
+unban = "0" + (unban - 400)  + "T" ;
+} else if(unban < 499){
+unban = (unban - 400) + "T" ;
+} else if(unban < 510){
+unban = "0" + (unban - 500)  + "M" ;
+} else if(unban < 599){
+unban =(unban - 500) + "M" ;
+} else if(unban < 610){
+unban = "0" + (unban - 600)  + "G" ;
+} else if(unban < 699){
+unban = (unban - 600) + "G" ;
+} else if(unban < 710){
+unban = "0" + (unban - 700)  + "S" ;
+} else if(unban < 799){
+unban = (unban - 700) + "S" ;
+} else if(unban < 810){
+unban = "0" + (unban - 800)  + "T" ;
+} else if(unban < 899){
+unban = (unban - 800) + "T" ;
+} else if(unban < 910){
+unban = "0" + (unban - 900)  + "G" ;
+} else if(unban < 999){
+unban = (unban - 900) + "G" ;
+}
+
+if ( unban == 180 ){
+unban = "80K"
+}
+
+
+      stid= JSON.stringify(data4.trains[n].station_id) ;
+      scid= JSON.stringify(data4.trains[n].section_id) ;
+      trid= JSON.stringify(data4.trains[n].track_number) ;
+      delay= JSON.stringify(data4.trains[n].delay_time) ;
+      cars= JSON.stringify(data4.trains[n].num_of_cars) ;
+
+//所属編成設定
+      line = JSON.stringify(data4.trains[n].train_line_id); 
+      hensei= JSON.stringify(data4.trains[n].train_orchestration_number).replace('"','').replace('"','') ;
+
+switch (sha) {
+
+case '"急"' :
+	sha = "(K" ;
+	if ( line == 26001 ){
+
+	if ( hensei == 87){
+	sha = "(Y" ;
+	hensei = "517)" ;
+	} else if ( hensei > 50) {
+	hensei = "5" + hensei + ")" ;
+	} else if ( hensei < 20) {
+	hensei = "4" + hensei + ")" ;
+	} else  {
+	hensei = hensei - 20 + 500 ;
+	hensei = hensei + ")" ;
+	}
+
+} else {
+	if ( hensei > 30) {
+	hensei = hensei - (-550) ;
+	hensei = hensei + ")" ;
+	} else if ( hensei < 30) {
+	hensei = "3" + hensei + ")" ;
+	}
+
+}
+
+	break;
+case '"副"':
+	sha = "(F" ;
+	if ( hensei > 80) {
+	hensei =  "7" + hensei + ")" ;
+	} else if ( hensei > 40) {
+	hensei = hensei - 40 + 100 ;
+	hensei =  hensei + ")" ;
+	} else if ( hensei < 40) {
+	hensei = hensei - 20 + 700 ;
+	hensei = hensei + ")" ;
+	}
+	break;
+case '"相"':
+	sha = "(G" ;
+
+	if ( line == 26001 ){
+	hensei = "2" + hensei + ")" ;
+	break;
+} else {
+	hensei = hensei - (-210) ;
+	hensei =  hensei + ")" ;
+	break;
+}
+case '"み"':
+	sha = "(Y" ;
+	hensei = hensei - 80 + 510 ;
+	hensei =  hensei + ")" ;
+	break;
+case '"西"':
+	sha = "(M" ;
+	if ( hensei < 60) {
+	hensei =   "6" + hensei + ")" ;
+	} else if ( hensei < 70) {
+	hensei = hensei - 50 + 400 ;
+	hensei =  hensei + ")" ;
+	} else {
+	hensei = hensei - 24 + 400 ;
+	hensei =  hensei + ")" ;
+	}
+	break;
+case '"東"':
+	sha = "(T" ;
+	if ( hensei < 70) {
+	hensei =   "9" + hensei + ")" ;
+	} else {
+	hensei =   "5" + hensei + ")" ;
+	}
+	break;
+case '"南"':
+	sha = "(N" ;
+	if ( hensei < 11) {
+	hensei =   "M" + hensei + ")" ;
+	} else {
+	hensei =  "9" + hensei + ")" ;
+	}
+	break;
+case '"都"':
+	sha = "(T" ;
+	if ( hensei < 20) {
+	hensei =   "5" + hensei + ")" ;
+	} else {
+	hensei = hensei - 20 + 300 ;
+	hensei =  hensei + ")" ;
+	}
+	break;
+case '""':
+	if ( cars == '"5"' ){
+	sha = "(K9" ;
+	} else {
+	sha = "(K6" ;
+	}
+	
+	if ( hensei == "00" ){
+	hensei = "--"
+	}
+	hensei = hensei + ")" ;
+
+	if ( unban == "80K" ){
+	sha = "(H3" ;
+	}
+	break;
+case 'null':
+	if ( hensei == null ){
+	sha = "　　" ;
+	hensei = "　" ;
+	} else if ( unban == "80K" ){
+	sha = "(H3" ;
+	hensei = hensei + ")" ;
+	}
+	break;
+}
+
+//遅れ
+if ( delay == "0"){
+ delay = "　" ;
+} else {
+}
+
+
+      info =  des + unban +  sha + hensei ;
+
+
+	nameText = 0;
+
+	var target;
+	var doc0= document.getElementById("ty99");  
+	var doc1= document.getElementById("ty99");
+	var doc2= document.getElementById("ty99");
+
+
+switch (stid){
+
+case ('933'):
+	switch (trid){
+	case ('-1'):
+	nameText = document.getElementById('om06-2a');
+	target = document.getElementById('om06-2ad');
+	target.style.left ='262px' ;
+	target.style.top = '597px' ;
+	doc2= document.getElementById("om06-2");  
+	doc0= document.getElementById("om06-2b");  
+	doc1= document.getElementById("om06-2c");  
+	break ;
+
+	case ('1'):
+	nameText = document.getElementById('om06-3a');
+	target = document.getElementById('om06-3ad');
+	target.style.left = '262px' ;
+	target.style.top = '633px' ;
+	doc2= document.getElementById("om06-3");  
+	doc0= document.getElementById("om06-3b");  
+	doc1= document.getElementById("om06-3c");  
+	break ;
+	}
+	break ;
+
+case ('974'):
+	switch (trid){
+	case ('-1'):
+	nameText = document.getElementById('om05-06');
+	target = document.getElementById('om05-06d');
+	target.style.left = '15px' ;
+	target.style.top = '480px' ;
+	doc2= document.getElementById("om05-6e");  
+	doc0= document.getElementById("om05-06b");  
+	doc1= document.getElementById("om05-06c");  
+	break ;
+	}
+	break ;
+
+case ('976'):
+	switch (trid){
+	case ('1'):
+	nameText = document.getElementById('om07-3a');
+	target = document.getElementById('om07-3ad');
+	target.style.left = '700px' ;
+	target.style.top = '760px' ;
+	doc2= document.getElementById("om07-3");  
+	doc0= document.getElementById("om07-3b");  
+	doc1= document.getElementById("om07-3c");  
+	break ;
+	}
+	break ;
+
+default:
+	nameText = 0;
+        break ;
+}
+
+switch (scid){
+
+case ('148'):
+	nameText = document.getElementById('om05-06');
+	target = document.getElementById('om05-06d');
+	target.style.left = '15px' ;
+	target.style.top = '480px' ;
+	doc2= document.getElementById("om05-6e");  
+	doc0= document.getElementById("om05-06b");  
+	doc1= document.getElementById("om05-06c");  
+	break ;
+
+case ('132'):
+	nameText = document.getElementById('om07-06');
+	target = document.getElementById('om07-06d');
+	target.style.left = '530px' ;
+	target.style.top = '760px' ;
+	doc2= document.getElementById("om07-6e");  
+	doc0= document.getElementById("om07-06b");  
+	doc1= document.getElementById("om07-06c");  
+	break ;
+}
+
+
+
+	doc2.innerHTML= kind + "　";
+	doc0.innerHTML= info.replace("―999","留置")+ " ";
+	doc1.innerHTML= delay;
+
+doc0.style.backgroundColor = '#ffffff'; //背景
+doc1.style.backgroundColor = '#ffffff'; //背景
+doc2.style.backgroundColor = '#ffffff'; //背景
+
+
+if ( nameText == 0 ){
+} else {
+
+
+switch (kind) {
+case '各' :
+doc2.style.color = '#0000ff'; //文字
+break;
+case '急' :
+doc2.style.color = '#ff0000'; //文字
+break;
+case '通' :
+doc2.style.color = '#32cd32'; //文字
+break;
+case '特' :
+doc2.style.color = '#ff8c00'; //文字
+break;
+case 'Ｇ' :
+doc2.style.color = '#32cd32'; //文字
+break;
+}
+
+
+
+switch (cars) {
+	case '"6"' :
+	doc0.style.textDecoration = "underline";
+	break;
+	case '"8"' :
+	break;
+	case '"10"' :
+	doc0.style.fontWeight = "bold";
+	break;
+}
+}
+
+}
+
+
+    }
+  }
+};
+
+request4.send(null);
 
 
 </script>
