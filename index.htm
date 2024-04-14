@@ -13,7 +13,7 @@ body{
 	background-repeat: no-repeat;
 	background-image: url(meguro01.png);
 	background-size:2045px;
-	zoom: 90%;
+	zoom: 80%;
 }
 
 textarea {
@@ -700,8 +700,12 @@ var data = JSON.parse(request.responseText);
       let len = '';
 
       let kind = '';
+      let kind2 = '';
+      let kind3 = '';
       let unban = '';
+      let unban1 = '';
       let des = '';
+      let des2 = '';
       let stid = '';
       let scid = '';
       let trid = '';
@@ -711,13 +715,22 @@ var data = JSON.parse(request.responseText);
       let line = '';
       let cars = '';
       let dai = 0;
-      let n = 1;
+      let n = 0;
+      let q = 0;
+      let n1 = 0;
+      let p = 5;
+      let p1 = 250;
+
+let now = Math.floor(Date.now() / 60000) ;
+	var F  = {};
 
       len = JSON.stringify(data.trains.length) ;
-
-	let nameText = document.getElementById('mg01-1a');
+      let nameText = document.getElementById('ty01-3a');
 
 ty99.value = "表示試験" ;
+
+var requesta = {};
+var dataa = {};
 
 for ( n = 0; n < len; n++) {
 
@@ -729,35 +742,58 @@ dai = 0;
 	switch (kind) {
 case '"普"':
 	kind = "各";
+	kind3 = "普";
 	break;
 case '"急"':
 	kind = "急";
+	kind3 = "急";
 	break;
 case '"特"':
 	kind = "特";
+	kind3 = "特";
 	break;
 case '"通"':
 	kind = "通";
+	kind3 = "通";
 	break;
 case '"Ｆ"':
 	kind = "Ｆ";
+	kind3 = "Ｆ";
 	break;
 case '"Ｓ"':
 	kind = "Ｓ";
+	kind3 = "Ｓ";
 	break;
 case '"回"':
 	kind = "回";
+	kind3 = "回";
 	break;
 case 'null':
 	kind = "　";
+	kind3 = "　";
 	break;
 }
+
+      unban = JSON.stringify(data.trains[n].operation_number) ;
+      unban1 = JSON.stringify(data.trains[n].operation_number) ;
+
+	if ( localStorage.getItem( unban1 + 'time' ) != null ){
+	 if( localStorage.getItem( unban1 + 'time' ) -(- 90) <= now ){
+		
+		localStorage.removeItem( unban1 );
+		localStorage.removeItem( unban1 + 'time' );
+	} 
+	}
 
 //行先設定
       des= JSON.stringify(data.trains[n].destination_station_code) ;
 	switch (des) {
 case '33':
 	des = "副";
+if ( localStorage.getItem( unban1) == null ){
+} else {
+des = localStorage.getItem( unban1) ;
+}
 	break;
 case '67':
 	des = "南";
@@ -815,6 +851,10 @@ case '108':
 	break;
 case '111':
 	des = "相";
+if ( localStorage.getItem( unban1) == null ){
+} else {
+des = localStorage.getItem( unban1) ;
+}
 	break;
 case '129':
 	des = "蒲";
@@ -1729,6 +1769,13 @@ case ('21'):
 	break ;
 }
 
+//ここから副都心線処理
+if ( des == '副' || des == '相') {
+F[q] = n;
+q ++ ;
+
+}
+
 
 	doc2.innerHTML= kind + "　";
 	doc0.innerHTML= info.replace("―999","留置")+ " ";
@@ -1787,6 +1834,113 @@ switch (cars) {
 
 }
 
+
+function sleepSetInterval(ms, callback, count) {
+  let i = 0;
+  const interval = setInterval(() => {
+    callback();
+    i++;
+    if (i === count) {
+      clearInterval(interval);
+    }
+  }, ms);
+}
+
+//副都心線処理
+if (q > 0) {
+var unban2 = 0;
+var k = 0 ;
+var m = 0 ;
+console.log( F );
+      console.log( q );
+
+function demo() {
+sleepSetInterval(500, () => {
+
+k = F[m] ;
+unban2 = JSON.stringify(data.trains[k].operation_number) ;
+des2 = JSON.stringify(data.trains[k].destination_station_code) ;
+requesta[m] = new XMLHttpRequest();
+if ( des2 == '33' ){
+requesta[m].open("GET", "https://timetable-api.tokyuapp.com/lines/26001/trains/" + unban2 + "/directions/up/kinds/" + kind3 + "/delays/0/sections/2", true);
+} else {
+requesta[m].open("GET", "https://timetable-api.tokyuapp.com/lines/26001/trains/" + unban2 + "/directions/down/kinds/" + kind3 + "/delays/0/sections/35", true);
+}
+requesta[m].responseType = "text";
+requesta[m].onload = () => {
+  if (requesta[m].readyState === requesta[m].DONE) {
+    if (requesta[m].status === 200) {
+dataa[m] = JSON.parse(requesta[m].responseText);
+      dataa[m] = JSON.stringify(dataa[m].destination) ;
+      console.log(  dataa[m] );
+	switch (dataa[m]) {
+case '"新宿三丁目"':
+	dataa[m] = "丁";
+	break ;
+case '"池袋"':
+	dataa[m] = "袋";
+	break ;
+case '"和光市"':
+	dataa[m] = "和";
+	break ;
+case '"志木"':
+	dataa[m] = "志";
+	break ;
+case '"川越市"':
+	dataa[m] = "市";
+	break ;
+case '"森林公園"':
+	dataa[m] = "森";
+	break ;
+case '"石神井公園"':
+	dataa[m] = "石";
+	break ;
+case '"保谷"':
+	dataa[m] = "保";
+	break ;
+case '"清瀬"':
+	dataa[m] = "清";
+	break ;
+case '"所沢"':
+	dataa[m] = "所";
+	break ;
+case '"小手指"':
+	dataa[m] = "指";
+	break ;
+case '"飯能"':
+	dataa[m] = "飯";
+	break ;
+case '"湘南台"':
+	dataa[m] = "湘";
+	break ;
+case '"海老名"':
+	dataa[m] = "海";
+	break ;
+case '"西谷"':
+	dataa[m] = "谷";
+	break ;
+default:
+if ( des2 == '33' ){
+	dataa[m] = "副";
+} else {
+	dataa[m] = "相";
+}
+        break ;
+}
+localStorage.setItem( unban2 , dataa[m] );
+localStorage.setItem( unban2 + 'time' , now );
+m++ ;
+    }
+  }
+};
+requesta[m].send(null);
+ }
+, q);
+}
+
+demo();
+}
+
     }
   }
 };
@@ -1810,8 +1964,12 @@ let info = '';
       let len = '';
 
       let kind = '';
+      let kind2 = '';
+      let kind3 = '';
       let unban = '';
+      let unban1 = '';
       let des = '';
+      let des2 = '';
       let stid = '';
       let scid = '';
       let trid = '';
@@ -1821,12 +1979,21 @@ let info = '';
       let line = '';
       let cars = '';
       let dai = 0;
-      let n = 1;
+      let n = 0;
+      let q2 = 0;
+      let n1 = 0;
+      let p = 5;
+      let p1 = 250;
+
+let now = Math.floor(Date.now() / 60000) ;
+	var N  = {};
 
       len = JSON.stringify(data2.trains.length) ;
 
 	let nameText = document.getElementById('ty01-3a');
 
+var requesta = {};
+var dataa = {};
 
 for ( n = 0; n < len; n++) {
 
@@ -1837,21 +2004,27 @@ dai = 0;
 	switch (kind) {
 case '"普"':
 	kind = "各";
+	kind3 = "普";
 	break;
 case '"急"':
 	kind = "急";
+	kind3 = "急";
 	break;
 case '"特"':
 	kind = "特";
+	kind3 = "特";
 	break;
 case '"通"':
 	kind = "通";
+	kind3 = "通";
 	break;
 case '"Ｆ"':
 	kind = "Ｆ";
+	kind3 = "Ｆ";
 	break;
 case '"回"':
 	kind = "回";
+	kind3 = "回";
 	break;
 case 'null':
 	kind = "　";
@@ -1859,16 +2032,33 @@ case 'null':
 }
 
 //行先設定
+      unban1 = JSON.stringify(data2.trains[n].operation_number) ;
       des= JSON.stringify(data2.trains[n].destination_station_code) ;
+
+if ( localStorage.getItem( unban1 + 'time' ) != null ){
+	 if( localStorage.getItem( unban1 + 'time' ) -(- 90) <= now ){
+		
+		localStorage.removeItem( unban1 );
+		localStorage.removeItem( unban1 + 'time' );
+	} 
+	}
 	switch (des) {
 case '33':
 	des = "副";
 	break;
 case '67':
 	des = "南";
+if ( localStorage.getItem( unban1) == null ){
+} else {
+des = localStorage.getItem( unban1) ;
+}
 	break;
 case '54':
 	des = "三";
+if ( localStorage.getItem( unban1) == null ){
+} else {
+des = localStorage.getItem( unban1) ;
+}
 	break;
 case '42':
 	des = "比";
@@ -1920,6 +2110,10 @@ case '108':
 	break;
 case '111':
 	des = "相";
+if ( localStorage.getItem( unban1) == null ){
+} else {
+des = localStorage.getItem( unban1) ;
+}
 	break;
 case '129':
 	des = "蒲";
@@ -2750,6 +2944,13 @@ case ('57'):
 }
 
 
+//ここから南北線処理
+if ( des == '南' || des == '三' || des == '相' ) {
+N[q2] = n;
+q2 ++ ;
+
+}
+
 
 	doc2.innerHTML= kind + "　";
 	doc0.innerHTML= info.replace("―999","留置")+ " ";
@@ -2801,6 +3002,97 @@ switch (cars) {
 
 }
 
+
+
+function sleepSetInterval(ms, callback, count) {
+  let i = 0;
+  const interval = setInterval(() => {
+    callback();
+    i++;
+    if (i === count) {
+      clearInterval(interval);
+    }
+  }, ms);
+}
+
+
+//南北線処理
+if (q2 > 0) {
+var unban2 = 0;
+var k = 0 ;
+var m = 0 ;
+
+function demo2() {
+sleepSetInterval(500, () => {
+
+k = N[m] ;
+
+unban2 = JSON.stringify(data2.trains[k].operation_number) ;
+des2= JSON.stringify(data2.trains[k].destination_station_code) ;
+requesta[m] = new XMLHttpRequest();
+if ( des2 == '54' || des2 == '67' ){
+requesta[m].open("GET", "https://timetable-api.tokyuapp.com/lines/26002/trains/" + unban2 + "/directions/up/kinds/" + kind3 + "/delays/0/sections/65", true);
+} else {
+requesta[m].open("GET", "https://timetable-api.tokyuapp.com/lines/26002/trains/" + unban2 + "/directions/down/kinds/" + kind3 + "/delays/0/sections/35", true);
+}
+requesta[m].responseType = "text";
+requesta[m].onload = () => {
+  if (requesta[m].readyState === requesta[m].DONE) {
+    if (requesta[m].status === 200) {
+dataa[m] = JSON.parse(requesta[m].responseText);
+      dataa[m] = JSON.stringify(dataa[m].destination) ;
+      console.log(  dataa[m] );
+	switch (dataa[m]) {
+case '"海老名"':
+	dataa[m] = "海";
+	break ;
+case '"湘南台"':
+	dataa[m] = "湘";
+	break ;
+case '"大和"':
+	dataa[m] = "大";
+	break ;
+case '"西谷"':
+	dataa[m] = "谷";
+	break ;
+case '"西高島平"':
+	dataa[m] = "西";
+	break ;
+case '"高島平"':
+	dataa[m] = "高";
+	break ;
+case '"浦和美園"':
+	dataa[m] = "美";
+	break ;
+case '"鳩ケ谷"':
+	dataa[m] = "鳩";
+	break ;
+case '"赤羽岩淵"':
+	dataa[m] = "岩";
+	break ;
+default:
+	if ( des2 == 54 ){
+	dataa[m] = "三";
+} else　if ( des2 == 67 ) {
+	dataa[m] = "南";
+} else {
+	dataa[m] = "相";
+}
+        break ;
+}
+localStorage.setItem( unban2 , dataa[m] );
+localStorage.setItem( unban2 + 'time' , now );
+m++ ;
+    }
+  }
+};
+requesta[m].send(null);
+ }
+, q2);
+}
+
+demo2();
+}
 
     }
   }
