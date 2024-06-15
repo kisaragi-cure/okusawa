@@ -708,10 +708,10 @@ if ( unjo1 == 'null' || unjo1 == null ){
 }
 }, false);
 
-if ( localStorage.getItem( 'bajon' ) >= 185 ){
+if ( localStorage.getItem( 'bajon1' ) == 185 ){
 } else {
 localStorage.clear();
-localStorage.setItem( 'bajon', 188 );
+localStorage.setItem( 'bajon1', 185 );
 }
 
 ///////////////////////////////ここから東横線
@@ -1088,10 +1088,20 @@ case '"都"':
 	hensei = hensei - 20 + 300 ;
 	hensei =  hensei + ")" ;
 	}
+if ( hensei == "504)" ){
+if ( cars == "'6'"){
+hensei = "322" ;
+}
+}
 	break;
 case 'null':
+	if (hensei == "00" || hensei == "null"){
 	sha = "　　" ;
 	hensei = "　" ;
+	} else {
+	sha = "(H3" ;
+	hensei = hensei + ")" ;
+	}
 	break;
 
 }
@@ -2379,11 +2389,19 @@ case '"都"':
 	hensei = hensei - 20 + 300 ;
 	hensei =  hensei + ")" ;
 	}
+if ( hensei == "504)" ){
+if ( cars == "'6'"){
+hensei = "322" ;
+}
+}
 	break;
 case 'null':
 	if (hensei == "00" || hensei == "null"){
 	sha = "　　" ;
 	hensei = "　" ;
+	} else {
+	sha = "(H3" ;
+	hensei = hensei + ")" ;
 	}
 	break;
 }
@@ -3518,6 +3536,11 @@ case '"都"':
 	hensei = hensei - 20 + 300 ;
 	hensei =  hensei + ")" ;
 	}
+if ( hensei == "504)" ){
+if ( cars == "'6'"){
+hensei = "322" ;
+}
+}
 	break;
 case '""':
 	sha = "(K" ;
