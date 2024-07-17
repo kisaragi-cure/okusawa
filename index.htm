@@ -2105,8 +2105,8 @@ case 'null':
       unban1 = JSON.stringify(data2.trains[n].operation_number) ;
       des= JSON.stringify(data2.trains[n].destination_station_code) ;
 
-if ( localStorage.getItem( unban1 + 'time' ) != null ){
-	 if( localStorage.getItem( unban1 + 'time' ) -(- 90) <= now ){
+if ( localStorage.getItem( unban1 + 'ty'  + 'time' ) != null ){
+	 if( localStorage.getItem( unban1  + 'ty' + 'time' ) -(- 90) <= now ){
 		
 		localStorage.removeItem( unban1 + 'ty' );
 		localStorage.removeItem( unban1 + 'ty' + 'time' );
