@@ -896,6 +896,18 @@ background-color: #ffffff;
 <div id="so08-4" style="position: absolute; top: 5150px; left:220px; font-size:12pt; "></div>
 <div id="so08-4c" style="position: absolute; top: 5205px; left:210px; font-size:12pt; color:#FF0000; "></div>
 
+<!鶴ヶ峰-西谷>
+<div id="so09-08d" style="position: absolute; top: -100px; left:-100px;"><input type="text"  id = "so09-08" disabled / name="address" size="14" value=""　></div>
+<div id="so09-08b" style="position: absolute; top: 5320px; left:230px; font-size:12pt; "></div>
+<div id="so09-08e" style="position: absolute; top: 5320px; left:240px; font-size:12pt"></div>
+<div id="so09-08c" style="position: absolute; top: 5375px; left:230px; font-size:12pt; color:#FF0000;"></div>
+
+<div style="position: absolute; top: 5420px; left:120px; font-size:18pt"><p>鶴ヶ峰</p></div>
+<div id="so09-1ad" style="position: absolute; top: -100px; left:-100px;"><input type="text"  id = "so09-1a" disabled / name="address" size="14" value=""　></div>
+<div id="so09-1b" style="position: absolute; top: 5425px; left:230px; font-size:12pt; "></div>
+<div id="so09-1" style="position: absolute; top: 5425px; left:240px; font-size:12pt; "></div>
+<div id="so09-1c" style="position: absolute; top: 5480px; left:230px; font-size:12pt; color:#FF0000; "></div>
+
 <div style="position: absolute; top: 2130px; left:1000px; font-size:22pt"><input type="button" id = "sotetsu" value="相鉄エリア→" ></div>
 <div style="position: absolute; top: 6150px; left:1200px; font-size:18pt"><p>　</p></div>
 
@@ -5220,7 +5232,9 @@ unban = unban + "K" ;
 }
 } else if(unban < 90){
 unban = unban  ;
+if ( choku == 1 ){
 sha = '=' + (retsuban % 1000 ) + 'M' ;
+}
 } else if(unban < 96){
 unban = unban + "G" ;
 } else if(unban < 100){
@@ -5377,11 +5391,23 @@ case ('8'):
 	doc1= document.getElementById("so08-3c");  
 	break ;
 	}
-
-
 	}
 	break ;
 
+
+case ('9'):
+	switch (trid){
+
+	case ('"up"'):
+	nameText = document.getElementById('so09-1a');
+	target = document.getElementById('so09-1ad');
+	doc2= document.getElementById("so09-1");  
+	doc0= document.getElementById("so09-1b");  
+	doc1= document.getElementById("so09-1c");  
+	break ;
+
+	}
+	break ;
 
 
 default:
@@ -5440,34 +5466,16 @@ case ('8'):
 	break ;
 
 	case ('"up"'):
+	nameText = document.getElementById('so09-08');
+	target = document.getElementById('so09-08d');
+	doc2= document.getElementById("so09-08e");  
+	doc0= document.getElementById("so09-08b");  
+	doc1= document.getElementById("so09-08c"); 
 	break ;
 
 	}
 	break ;
 
-case ('149'):
-	nameText = document.getElementById('om06-07d');
-	target = document.getElementById('om06-07d');
-	doc2= document.getElementById("om06-7e");  
-	doc0= document.getElementById("om06-07b");  
-	doc1= document.getElementById("om06-07c");  
-	break ;
-
-case ('132'):
-	nameText = document.getElementById('om07-06d');
-	target = document.getElementById('om07-06d');
-	doc2= document.getElementById("om07-6e");  
-	doc0= document.getElementById("om07-06b");  
-	doc1= document.getElementById("om07-06c");  
-	break ;
-
-case ('133'):
-	nameText = document.getElementById('om08-07d');
-	target = document.getElementById('om08-07d');
-	doc2= document.getElementById("om08-7e");  
-	doc0= document.getElementById("om08-07b");  
-	doc1= document.getElementById("om08-07c");  
-	break ;
 }
 
 
