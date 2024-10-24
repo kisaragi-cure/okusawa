@@ -5233,6 +5233,18 @@ unban = unban + "K" ;
 }
 } else if(unban < 30){
 unban = unban + "K" ;
+} else if(unban == 35){
+unban = unban + "G" ;
+} else if(unban == 37){
+unban = unban + "G" ;
+} else if(unban == 39){
+unban = unban + "G" ;
+} else if(unban == 41){
+unban = unban + "G" ;
+} else if(unban == 42){
+unban = unban + "G" ;
+} else if(unban == 44){
+unban = unban + "G" ;
 } else if(unban < 45){
 unban = unban  ;
 } else if(unban < 50){
@@ -5242,10 +5254,13 @@ unban = unban  ;
 if ( choku == 1 ){
 unban = unban + "K" ;
 }
+if ( unban == 60 ){
+unban = unban + "K" ;
+}
 } else if(unban < 90){
 unban = unban  ;
 if ( choku == 1 ){
-sha = '=' + (retsuban % 1000 ) + 'M' ;
+sha = '&nbsp;'　+ '=' + (retsuban % 1000 ) + 'M' ;
 }
 } else if(unban < 96){
 unban = unban + "G" ;
@@ -5304,7 +5319,7 @@ unban = unban ;
 
 
 if ( unban.length == 2 ){
-unban = ' ' + unban ;
+unban = '&nbsp;' + unban ;
 }
 
 switch (cars) {
