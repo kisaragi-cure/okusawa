@@ -52,12 +52,14 @@ background-color: #ffffff;
   <body>
 
 <nobr>
-<p> 東横目黒エリア　[更新間隔：15秒]　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　(C)Cure_kisaragi 2024 / Ver.2.00 </p>
+<p> 東横目黒エリア　[自動更新：15秒]　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　(C)Cure_kisaragi 2024 / Ver.2.00 </p>
 <br>
 <br>
 <br>
 <br>
 <br>
+
+<div id="time" style="position: absolute; top: 30px; left:10px; font-size:12pt; "></div>
 
 <div style="position: absolute; top: 8px; left:320px; font-size:30pt"><input type="button" id = "joho" value="東横線運行情報なし　　　　　　" ></div>
 <div style="position: absolute; top: 8px; left:570px; font-size:30pt"><input type="button" id = "joho1" value="目黒線運行情報なし　　　　　　" ></div>
@@ -1402,6 +1404,12 @@ hensei = 'OQi)'
       info =   '　　' + des + '<br/>' +  　unban +　 '<br/>' +  sha + hensei +　 '<br/>' +  '　　' ;
 
 	nameText = 0;
+
+	let date = new Date()  ;
+	date = ('0' + (date.getMonth() + 1)).slice(-2) + '月' +('0' + date.getDate()).slice(-2) + '日 ' +  ('0' + date.getHours()).slice(-2) + '時' + ('0' + date.getMinutes()).slice(-2) + '分' + ('0' + date.getSeconds()).slice(-2) + '秒現在';
+	
+//更新時刻表示
+	document.getElementById("time").innerHTML= date;
 
 
 	var target;
@@ -4919,7 +4927,7 @@ case '6':
 case '8':
 	kind = "特";
 	break;
-case '5':
+case '"通"':
 	kind = "通";
 	break;
 case '7':
