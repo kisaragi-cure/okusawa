@@ -346,7 +346,7 @@ background-color: #ffffff;
 <div id="mg06-5e" style="position: absolute; top: 1295px; left:850px; font-size:12pt; "></div>
 <div id="mg06-05c" style="position: absolute; top: 1350px; left:840px; font-size:12pt; color:#FF0000; "></div>
 
-<div style="position: absolute; top: 1060px; left:1000px; font-size:16pt"><p>(北千束)</p></div>
+<div style="position: absolute; top: 1070px; left:1045px; font-size:15pt"><p>(北千束)</p></div>
 <div id="om05-3ad" style="position: absolute; top: -100px; left:-100px;"><input type="text"  id = "om05-3a" disabled / name="address" size="14" value=""　></div>
 <div id="om05-3b" style="position: absolute; top: 1130px; left:1010px; font-size:12pt; "></div>
 <div id="om05-3" style="position: absolute; top: 1130px; left:1020px; font-size:12pt; "></div>
@@ -378,13 +378,13 @@ background-color: #ffffff;
 
 <!緑が丘-大岡山>
 <div id="om06-07d" style="position: absolute; top: -100px; left:-100px;"><input type="text"  id = "om06-07" disabled / name="address" size="14" value=""　></div>
-<div id="om06-07b" style="position: absolute; top: 1670px; left:730px; font-size:12pt; "></div>
-<div id="om06-7e" style="position: absolute; top: 1670px; left:740px; font-size:12pt; "></div>
-<div id="om06-07c" style="position: absolute; top: 1725px; left:730px; font-size:12pt; color:#FF0000; "></div>
+<div id="om06-07b" style="position: absolute; top: 1675px; left:730px; font-size:12pt; "></div>
+<div id="om06-7e" style="position: absolute; top: 1675px; left:740px; font-size:12pt; "></div>
+<div id="om06-07c" style="position: absolute; top: 1730px; left:730px; font-size:12pt; color:#FF0000; "></div>
 <div id="om07-06d" style="position: absolute; top: -100px; left:-100px;"><input type="text"  id = "om07-06" disabled / name="address" size="14" value=""　></div>
-<div id="om07-06b" style="position: absolute; top: 1670px; left:670px; font-size:12pt; "></div>
-<div id="om07-6e" style="position: absolute; top: 1670px; left:680px; font-size:12pt; "></div>
-<div id="om07-06c" style="position: absolute; top: 1725px; left:670px; font-size:12pt; color:#FF0000; "></div>
+<div id="om07-06b" style="position: absolute; top: 1690px; left:670px; font-size:12pt; "></div>
+<div id="om07-6e" style="position: absolute; top: 1690px; left:680px; font-size:12pt; "></div>
+<div id="om07-06c" style="position: absolute; top: 1745px; left:670px; font-size:12pt; color:#FF0000; "></div>
 
 <div style="position: absolute; top: 1770px; left:550px; font-size:16pt"><p>(緑が丘)</p></div>
 <div id="om07-3ad" style="position: absolute; top: -100px; left:-100px;"><input type="text"  id = "om07-3a" disabled / name="address" size="14" value=""　></div>
@@ -923,7 +923,7 @@ background-color: #ffffff;
 <div id="so09-1c" style="position: absolute; top: 5515px; left:230px; font-size:12pt; color:#FF0000; "></div>
 
 <div style="position: absolute; top: 5500px; left:300px; font-size:24pt"><input type="button" id = "sotetsu" value="相鉄エリア" class="sotetsubutton"></div>
-<div style="position: absolute; top: 2000px; left:600px; font-size:24pt"><input type="button" id = "dento" value="大井田都エリア" class="dentobutton"></div>
+<div style="position: absolute; top: 2020px; left:600px; font-size:24pt"><input type="button" id = "dento" value="大井田都エリア" class="dentobutton"></div>
 
 <div style="position: absolute; top: 6150px; left:1100px; font-size:18pt"><p>　</p></div>
 
@@ -1067,7 +1067,7 @@ case 'null':
       unban1 = JSON.stringify(data.trains[n].operation_number) ;
 
 	if ( localStorage.getItem( unban1 + 'ty' + 'time' ) != null ){
-	 if( localStorage.getItem( unban1 + 'ty' + 'time' ) -(- 60) <= now ){
+	 if( localStorage.getItem( unban1 + 'ty' + 'time' ) -(- 50) <= now ){
 		
 		localStorage.removeItem( unban1 + 'ty' );
 		localStorage.removeItem( unban1 + 'ty' + 'time' );
@@ -1977,8 +1977,6 @@ case ('4'):
 case ('27'):
 	nameText = document.getElementById('ty04-05');
 	target = document.getElementById('ty04-05d');
-	target.style.left = '1610px' ;
-	target.style.top = '150px' ;
 	doc2= document.getElementById("ty04-5e");  
 	doc0= document.getElementById("ty04-05b");  
 	doc1= document.getElementById("ty04-05c");  
@@ -2399,9 +2397,6 @@ case '"所沢"':
 	break ;
 case '"小手指"':
 	dataa[m] = "指";
-	break ;
-case '"入間市"':
-	dataa[m] = "入";
 	break ;
 case '"飯能"':
 	dataa[m] = "飯";
