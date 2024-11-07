@@ -378,13 +378,13 @@ background-color: #ffffff;
 
 <!緑が丘-大岡山>
 <div id="om06-07d" style="position: absolute; top: -100px; left:-100px;"><input type="text"  id = "om06-07" disabled / name="address" size="14" value=""　></div>
-<div id="om06-07b" style="position: absolute; top: 1675px; left:730px; font-size:12pt; "></div>
-<div id="om06-7e" style="position: absolute; top: 1675px; left:740px; font-size:12pt; "></div>
-<div id="om06-07c" style="position: absolute; top: 1730px; left:730px; font-size:12pt; color:#FF0000; "></div>
+<div id="om06-07b" style="position: absolute; top: 1685px; left:730px; font-size:12pt; "></div>
+<div id="om06-7e" style="position: absolute; top: 1685px; left:740px; font-size:12pt; "></div>
+<div id="om06-07c" style="position: absolute; top: 1740px; left:730px; font-size:12pt; color:#FF0000; "></div>
 <div id="om07-06d" style="position: absolute; top: -100px; left:-100px;"><input type="text"  id = "om07-06" disabled / name="address" size="14" value=""　></div>
-<div id="om07-06b" style="position: absolute; top: 1690px; left:670px; font-size:12pt; "></div>
-<div id="om07-6e" style="position: absolute; top: 1690px; left:680px; font-size:12pt; "></div>
-<div id="om07-06c" style="position: absolute; top: 1745px; left:670px; font-size:12pt; color:#FF0000; "></div>
+<div id="om07-06b" style="position: absolute; top: 1680px; left:670px; font-size:12pt; "></div>
+<div id="om07-6e" style="position: absolute; top: 1680px; left:680px; font-size:12pt; "></div>
+<div id="om07-06c" style="position: absolute; top: 1735px; left:670px; font-size:12pt; color:#FF0000; "></div>
 
 <div style="position: absolute; top: 1770px; left:550px; font-size:16pt"><p>(緑が丘)</p></div>
 <div id="om07-3ad" style="position: absolute; top: -100px; left:-100px;"><input type="text"  id = "om07-3a" disabled / name="address" size="14" value=""　></div>
@@ -456,12 +456,12 @@ background-color: #ffffff;
 <div id="ty08-9e" style="position: absolute; top: 2435px; left:750px; font-size:12pt; "></div>
 <div id="ty08-09c" style="position: absolute; top: 2490px; left:740px; font-size:12pt; color:#FF0000; "></div>
 <div id="mg08-09d" style="position: absolute; top: -100px; left:-100px;"><input type="text"  id = "mg08-09" disabled / name="address" size="14" value=""　></div>
-<div id="mg08-09b" style="position: absolute; top: 2435px; left:660px; font-size:12pt; "></div>
-<div id="mg08-9e" style="position: absolute; top: 2435px; left:670px; font-size:12pt; "></div>
+<div id="mg08-09b" style="position: absolute; top: 2430px; left:660px; font-size:12pt; "></div>
+<div id="mg08-9e" style="position: absolute; top: 2430px; left:670px; font-size:12pt; "></div>
 <div id="mg08-09c" style="position: absolute; top: 2490px; left:660px; font-size:12pt; color:#FF0000; "></div>
 <div id="mg09-08d" style="position: absolute; top: -100px; left:-100px;"><input type="text"  id = "mg09-08" disabled / name="address" size="14" value=""　></div>
-<div id="mg09-08b" style="position: absolute; top: 2435px; left:600px; font-size:12pt; "></div>
-<div id="mg09-8e" style="position: absolute; top: 2435px; left:610px; font-size:12pt; "></div>
+<div id="mg09-08b" style="position: absolute; top: 2430px; left:600px; font-size:12pt; "></div>
+<div id="mg09-8e" style="position: absolute; top: 2430px; left:610px; font-size:12pt; "></div>
 <div id="mg09-08c" style="position: absolute; top: 2490px; left:600px; font-size:12pt; color:#FF0000; "></div>
 <div id="ty09-08d" style="position: absolute; top: -100px; left:-100px;"><input type="text"  id = "ty09-08" disabled / name="address" size="14" value=""　></div>
 <div id="ty09-08b" style="position: absolute; top: 2435px; left:520px; font-size:12pt; "></div>
@@ -4673,8 +4673,13 @@ case '"都"':
 case '""':
 	if ( cars == '"5"' ){
 	sha = "(K9" ;
-	} else {
+	if ( hensei > 20 ){
+	dai = 2 ;
+	}
+	} else if ( cars == '"7"' ) {
 	sha = "(K6" ;
+	} else {
+	sha = "" ;
 	}
 	
 	if ( hensei == "00" ){
@@ -4684,6 +4689,16 @@ case '""':
 
 	if ( unban == "80K" ){
 	sha = "(H3" ;
+	}
+
+	if ( sha == "" ){
+	hensei = "" ;
+	}
+	if ( sha == "(K6" && hensei == "01)" ){
+	hensei = "21)" ;
+	}
+	if ( sha == "(K6" && hensei == "02)" ){
+	hensei = "22)" ;
 	}
 	break;
 case 'null':
@@ -4700,6 +4715,23 @@ case 'null':
 	break;
 }
 
+switch (cars) {
+	case '"6"' :
+	unban = '⑥' + unban ;
+	break;
+	case '"7"' :
+	unban = '⑦' + unban ;
+	break;
+	case '"5"' :
+	unban = '　' + unban ;
+	break;
+	case '"10"' :
+	unban = '⑩' + unban ;
+	break;
+	default:
+	unban = '〇' + unban ;
+        break ;
+}
 
 //遅れ
 if ( delay == "0"){
@@ -4711,7 +4743,7 @@ if ( delay == "0"){
 }
 
 
-     info =   '　　' + des + '<br/>' +  '　'　+ 　unban +　 '<br/>' +  sha + hensei +　 '<br/>' +  '　　' ;
+     info =   '　　' + des + '<br/>' +   　unban +　 '<br/>' +  sha + hensei +　 '<br/>' +  '　　' ;
 
 
 	nameText = 0;
@@ -4925,7 +4957,7 @@ case '6':
 case '8':
 	kind = "特";
 	break;
-case '"通"':
+case '5':
 	kind = "通";
 	break;
 case '7':
