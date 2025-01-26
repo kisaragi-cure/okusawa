@@ -43,6 +43,12 @@ background-color: #ffffff;
     padding: 7px;
     font-size: 18pt;
 }
+.mitabutton{
+    width: 150px;
+    height: 2em;
+    padding: 7px;
+    font-size: 18pt;
+}
 
 </style>
 
@@ -52,7 +58,7 @@ background-color: #ffffff;
   <body>
 
 <nobr>
-<p> 東横目黒エリア　[自動更新：15秒]　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　(C)Cure_kisaragi 2024 / Ver.2.00 </p>
+<p> 東横目黒エリア　[自動更新：15秒]　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　(C)Cure_kisaragi 2024 / Ver.2.10 </p>
 <br>
 <br>
 <br>
@@ -924,6 +930,7 @@ background-color: #ffffff;
 
 <div style="position: absolute; top: 5500px; left:300px; font-size:24pt"><input type="button" id = "sotetsu" value="相鉄エリア" class="sotetsubutton"></div>
 <div style="position: absolute; top: 2020px; left:600px; font-size:24pt"><input type="button" id = "dento" value="大井田都エリア" class="dentobutton"></div>
+<div style="position: absolute; top: 100px; left:630px; font-size:24pt"><input type="button" id = "mita" value="都営三田線" class="mitabutton"></div>
 
 <div style="position: absolute; top: 6150px; left:1100px; font-size:18pt"><p>　</p></div>
 
@@ -942,6 +949,10 @@ document.getElementById("sotetsu").addEventListener("click", function () {
 
 document.getElementById("dento").addEventListener("click", function () {
   location.href ="https://kisaragi-cure.github.io/takatsu/";
+}, false);
+
+document.getElementById("mita").addEventListener("click", function () {
+  location.href ="https://kisaragi-cure.github.io/ToeiMita/";
 }, false);
 
 
@@ -1094,7 +1105,7 @@ case '54':
 	des = "三";
 	break;
 case '42':
-	des = "千";
+	des = "比";
 	break;
 case '71':
 	des = "目";
@@ -2400,6 +2411,9 @@ case '"所沢"':
 case '"小手指"':
 	dataa[m] = "指";
 	break ;
+case '"入間市"':
+	dataa[m] = "入";
+	break ;
 case '"飯能"':
 	dataa[m] = "飯";
 	break ;
@@ -2580,7 +2594,7 @@ des = localStorage.getItem( unban1  + 'ty') ;
 }
 	break;
 case '42':
-	des = "千";
+	des = "比";
 	break;
 case '71':
 	des = "目";
