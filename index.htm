@@ -1154,9 +1154,6 @@ case '90':
 case '93':
 	des = "菊";
 	break;
-case '95':
-	des = "楽";
-	break;
 case '98':
 	des = "横";
 	break;
@@ -4635,74 +4632,12 @@ case '"急"' :
 }
 
 	break;
-case '"副"':
-	sha = "(F" ;
-	if ( hensei > 80) {
-	hensei =  "7" + hensei + ")" ;
-	} else if ( hensei > 40) {
-	hensei = hensei - 40 + 100 ;
-	hensei =  hensei + ")" ;
-	} else if ( hensei < 40) {
-	hensei = hensei - 20 + 700 ;
-	hensei = hensei + ")" ;
-	}
-	break;
-case '"相"':
-	sha = "(G" ;
-
-	if ( line == 26001 ){
-	hensei = "2" + hensei + ")" ;
-	break;
-} else {
-	hensei = hensei - (-210) ;
-	hensei =  hensei + ")" ;
-	break;
-}
-case '"み"':
-	sha = "(Y" ;
-	hensei = hensei - 80 + 510 ;
-	hensei =  hensei + ")" ;
-	break;
-case '"西"':
-	sha = "(M" ;
-	if ( hensei < 60) {
-	hensei =   "6" + hensei + ")" ;
-	} else if ( hensei < 70) {
-	hensei = hensei - 50 + 400 ;
-	hensei =  hensei + ")" ;
-	} else {
-	hensei = hensei - 24 + 400 ;
-	hensei =  hensei + ")" ;
-	}
-	break;
-case '"東"':
-	sha = "(T" ;
-	if ( hensei < 70) {
-	hensei =   "9" + hensei + ")" ;
-	} else {
-	hensei =   "5" + hensei + ")" ;
-	}
-	break;
-case '"南"':
-	sha = "(N" ;
-	if ( hensei < 11) {
-	hensei =   "M" + hensei + ")" ;
-	} else {
-	hensei =  "9" + hensei + ")" ;
-	}
-	break;
-case '"都"':
-	sha = "(T" ;
-	if ( hensei < 20) {
-	hensei =   "5" + hensei + ")" ;
-	} else {
-	hensei = hensei - 20 + 300 ;
-	hensei =  hensei + ")" ;
-	}
-	break;
 case '""':
 	if ( cars == '"5"' ){
 	sha = "(K9" ;
+	if ( hensei > 50 ){
+	sha = "(K6" ;
+	}
 	if ( hensei > 20 ){
 	dai = 2 ;
 	}
@@ -4744,6 +4679,7 @@ case 'null':
 	}
 	break;
 }
+
 
 switch (cars) {
 	case '"6"' :
