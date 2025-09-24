@@ -64,7 +64,7 @@ background-color: #ffffff;
   <body>
 
 <nobr>
-<p> 東横目黒エリア　[自動更新：15秒]　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　(C)Cure_kisaragi 2024 / Ver.2.10 </p>
+<p> 東横目黒エリア　[自動更新：15秒]　　　　　　　　　　　　　　　　　　　　　　　　　　　　　(C)Cure_kisaragi 2024-2025 / Ver.2.10 </p>
 <br>
 <br>
 <br>
@@ -923,16 +923,32 @@ background-color: #ffffff;
 <div id="so08-4c" style="position: absolute; top: 5240px; left:210px; font-size:12pt; color:#FF0000; "></div>
 
 <!鶴ヶ峰-西谷>
+<div id="so08-09d" style="position: absolute; top: -100px; left:-100px;"><input type="text"  id = "so08-09" disabled / name="address" size="14" value=""　></div>
+<div id="so08-09b" style="position: absolute; top: 5345px; left:410px; font-size:12pt; "></div>
+<div id="so08-09e" style="position: absolute; top: 5345px; left:420px; font-size:12pt"></div>
+<div id="so08-09c" style="position: absolute; top: 5400px; left:410px; font-size:12pt; color:#FF0000;"></div>
+
 <div id="so09-08d" style="position: absolute; top: -100px; left:-100px;"><input type="text"  id = "so09-08" disabled / name="address" size="14" value=""　></div>
 <div id="so09-08b" style="position: absolute; top: 5355px; left:230px; font-size:12pt; "></div>
 <div id="so09-08e" style="position: absolute; top: 5355px; left:240px; font-size:12pt"></div>
 <div id="so09-08c" style="position: absolute; top: 5410px; left:230px; font-size:12pt; color:#FF0000;"></div>
+<div id="so09-08d1" style="position: absolute; top: -100px; left:-100px;"><input type="text"  id = "so09-081" disabled / name="address" size="14" value=""　></div>
+<div id="so09-08b1" style="position: absolute; top: 5355px; left:150px; font-size:12pt; "></div>
+<div id="so09-08e1" style="position: absolute; top: 5355px; left:160px; font-size:12pt"></div>
+<div id="so09-08c1" style="position: absolute; top: 5410px; left:150px; font-size:12pt; color:#FF0000;"></div>
 
-<div style="position: absolute; top: 5420px; left:120px; font-size:18pt"><p>鶴ヶ峰</p></div>
+
+<div style="position: absolute; top: 5460px; left:120px; font-size:18pt"><p>鶴ヶ峰</p></div>
 <div id="so09-1ad" style="position: absolute; top: -100px; left:-100px;"><input type="text"  id = "so09-1a" disabled / name="address" size="14" value=""　></div>
-<div id="so09-1b" style="position: absolute; top: 5460px; left:230px; font-size:12pt; "></div>
-<div id="so09-1" style="position: absolute; top: 5460px; left:240px; font-size:12pt; "></div>
-<div id="so09-1c" style="position: absolute; top: 5515px; left:230px; font-size:12pt; color:#FF0000; "></div>
+<div id="so09-1b" style="position: absolute; top: 5465px; left:230px; font-size:12pt; "></div>
+<div id="so09-1" style="position: absolute; top: 5465px; left:240px; font-size:12pt; "></div>
+<div id="so09-1c" style="position: absolute; top: 5520px; left:230px; font-size:12pt; color:#FF0000; "></div>
+
+<!二俣川-鶴ヶ峰>
+<div id="so10-09d" style="position: absolute; top: -100px; left:-100px;"><input type="text"  id = "so10-09" disabled / name="address" size="14" value=""　></div>
+<div id="so10-09b" style="position: absolute; top: 5560px; left:230px; font-size:12pt; "></div>
+<div id="so10-09e" style="position: absolute; top: 5560px; left:240px; font-size:12pt"></div>
+<div id="so10-09c" style="position: absolute; top: 5615px; left:230px; font-size:12pt; color:#FF0000;"></div>
 
 <div style="position: absolute; top: 5500px; left:300px; font-size:24pt"><input type="button" id = "sotetsu" value="相鉄エリア" class="sotetsubutton"></div>
 <div style="position: absolute; top: 2020px; left:600px; font-size:24pt"><input type="button" id = "dento" value="大井田都エリア" class="dentobutton"></div>
@@ -5513,10 +5529,41 @@ case ('8'):
 
 	case ('"up"'):
 	nameText = document.getElementById('so09-08');
+	if ( nameText.value == ''){
 	target = document.getElementById('so09-08d');
 	doc2= document.getElementById("so09-08e");  
 	doc0= document.getElementById("so09-08b");  
 	doc1= document.getElementById("so09-08c"); 
+	} else {
+	nameText = document.getElementById('so09-081');
+	target = document.getElementById('so09-08d1');
+	doc2= document.getElementById("so09-08e1");  
+	doc0= document.getElementById("so09-08b1");  
+	doc1= document.getElementById("so09-08c1"); 
+	}
+	break ;
+
+	}
+	break ;
+
+case ('9'):
+	switch (trid){
+	case ('"down"'):
+
+	nameText = document.getElementById('so08-09');
+	target = document.getElementById('so08-09d');
+	doc2= document.getElementById("so08-09e");  
+	doc0= document.getElementById("so08-09b");  
+	doc1= document.getElementById("so08-09c"); 
+
+	break ;
+
+	case ('"up"'):
+	nameText = document.getElementById('so10-09');	
+	target = document.getElementById('so10-09d');
+	doc2= document.getElementById("so10-09e");  
+	doc0= document.getElementById("so10-09b");  
+	doc1= document.getElementById("so10-09c"); 
 	break ;
 
 	}
