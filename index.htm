@@ -5,7 +5,7 @@
     <title>CK在線情報(TY-MG)</title>
 	<link rel="icon" href="tyy.ico">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta http-equiv="refresh" content="15">
+
 
 <style type="text/css">
 
@@ -55,6 +55,27 @@ background-color: #ffffff;
     padding: 7px;
     font-size: 18pt;
 }
+.yomi1{
+    width: 120px;
+    height: 2em;
+    padding: 7px;
+    font-size: 14pt;
+}
+.yomi2{
+    width: 120px;
+    height: 2em;
+    padding: 7px;
+    font-size: 14pt;
+}
+.hyoji{
+    width: 120px;
+    height: 2em;
+    padding: 7px;
+    font-size: 14pt;
+}
+
+
+
 
 </style>
 
@@ -64,7 +85,7 @@ background-color: #ffffff;
   <body>
 
 <nobr>
-<p> 東横目黒エリア　[自動更新：15秒]　　　　　　　　　　　　　　　　　　　　　　　　　　　　　(C)Cure_kisaragi 2024-2025 / Ver.2.10 </p>
+<p> 東横目黒エリア　[手動式]　　　　　　　　　　　　　　　　　　　　　　　　　　　　　(C)Cure_kisaragi 2024-2025 / Ver.3.00 </p>
 <br>
 <br>
 <br>
@@ -73,8 +94,7 @@ background-color: #ffffff;
 
 <div id="time" style="position: absolute; top: 30px; left:10px; font-size:12pt; "></div>
 
-<div style="position: absolute; top: 8px; left:320px; font-size:30pt"><input type="button" id = "joho" value="東横線運行情報なし　　　　　　" ></div>
-<div style="position: absolute; top: 8px; left:570px; font-size:30pt"><input type="button" id = "joho1" value="目黒線運行情報なし　　　　　　" ></div>
+
 
 <div style="position: absolute; top: 200px; left:100px; font-size:18pt"><p>渋　谷</p></div>
 <div style="position: absolute; top: 150px; left:200px; font-size:14pt"><p>B6</p></div>
@@ -954,6 +974,14 @@ background-color: #ffffff;
 <div style="position: absolute; top: 2020px; left:600px; font-size:24pt"><input type="button" id = "dento" value="大井田都エリア" class="dentobutton"></div>
 <div style="position: absolute; top: 2420px; left:800px; font-size:24pt"><input type="button" id = "iketama" value="池多摩エリア" class="iketamabutton"></div>
 <div style="position: absolute; top: 100px; left:630px; font-size:24pt"><input type="button" id = "mita" value="都営三田線" class="mitabutton"></div>
+<div style="position: absolute; top: 40px; left:30px; font-size:24pt"><input type="button" id = "yomi01" value="読込1" class="yomi1"></div>
+<div style="position: absolute; top: 80px; left:30px; font-size:24pt"><input type="text" id = "text1"></div>
+<div style="position: absolute; top: 100px; left:30px; font-size:24pt"><input type="button" id = "yomi02" value="読込2" class="yomi2"></div>
+<div style="position: absolute; top: 140px; left:30px; font-size:24pt"><input type="text" id = "text2"></div>
+<div style="position: absolute; top: 160; left:30px; font-size:24pt"><input type="button" id = "hyoji0" value="表示" class="hyoji"></div>
+
+
+
 
 <div style="position: absolute; top: 6150px; left:1100px; font-size:18pt"><p>　</p></div>
 
@@ -982,24 +1010,29 @@ document.getElementById("iketama").addEventListener("click", function () {
   location.href ="https://kisaragi-cure.github.io/tokyu/";
 }, false);
 
-
-
-
-document.getElementById("joho").addEventListener("click", function () {
-if ( unjo == 'null' || unjo == null ){
- alert( '東横線は平常通り運転しています。' )
-} else {
- alert( unjo )
-}
+document.getElementById("yomi01").addEventListener("click", function () {
+  location.href ="https://04x5f9ykzc.execute-api.ap-northeast-1.amazonaws.com/prod/external-data-url?key=toyoko.json";
 }, false);
 
-document.getElementById("joho1").addEventListener("click", function () {
-if ( unjo1 == 'null' || unjo1 == null ){
- alert( '目黒線は平常通り運転しています。' )
-} else {
- alert( unjo1 )
+document.getElementById("yomi02").addEventListener("click", function () {
+
+let element = document.getElementById('text1').value;
+let url = element;
+let url1 = url.toString();
+console.log (url);
+
+
+if ( url1 =! "" ) {
+url1 = url.toString().replace('{"url":"','');
+url1 = url1.toString().replace('"}','');
 }
+
+  location.href = url1 ;
+
 }, false);
+
+
+
 	
 if ( localStorage.getItem( 'bajon' ) >= 200 ){
 } else {
@@ -1008,16 +1041,15 @@ localStorage.setItem( 'bajon', 200 );
 }
 
 
+document.getElementById("hyoji0").addEventListener("click", function () {
+
+var data0 = document.getElementById('text2').value;
+
+
 ///////////////////////////////ここから東横線
 
-var request = new XMLHttpRequest();
-request.open("GET", "https://tokyu-tid.s3.amazonaws.com/toyoko.json", true);
-request.responseType = "text";
 
-request.onload = () => {
-  if (request.readyState === request.DONE) {
-    if (request.status === 200) {
-var data = JSON.parse(request.responseText);
+var data = JSON.parse( data0 );
       console.log(data);
 
 
@@ -2497,14 +2529,12 @@ requesta[m].send(null);
 
 demo();
 }
-    }
-  }
-};
+
+}, false);
 
 
 
 
-request.send(null);
 
 /////////////////////////////////////ここから目黒線
 
