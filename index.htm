@@ -56,23 +56,42 @@ background-color: #ffffff;
     font-size: 18pt;
 }
 .yomi1{
-    width: 120px;
+    width: 100px;
     height: 2em;
     padding: 7px;
     font-size: 14pt;
 }
 .yomi2{
-    width: 120px;
+    width: 100px;
     height: 2em;
     padding: 7px;
     font-size: 14pt;
 }
 .hyoji{
-    width: 120px;
+    width: 100px;
     height: 2em;
     padding: 7px;
     font-size: 14pt;
 }
+.yomi11{
+    width: 100px;
+    height: 2em;
+    padding: 7px;
+    font-size: 14pt;
+}
+.yomi12{
+    width: 100px;
+    height: 2em;
+    padding: 7px;
+    font-size: 14pt;
+}
+.hyoji10{
+    width: 100px;
+    height: 2em;
+    padding: 7px;
+    font-size: 14pt;
+}
+
 
 
 
@@ -973,12 +992,19 @@ background-color: #ffffff;
 <div style="position: absolute; top: 5500px; left:300px; font-size:24pt"><input type="button" id = "sotetsu" value="相鉄エリア" class="sotetsubutton"></div>
 <div style="position: absolute; top: 2020px; left:600px; font-size:24pt"><input type="button" id = "dento" value="大井田都エリア" class="dentobutton"></div>
 <div style="position: absolute; top: 2420px; left:800px; font-size:24pt"><input type="button" id = "iketama" value="池多摩エリア" class="iketamabutton"></div>
-<div style="position: absolute; top: 100px; left:630px; font-size:24pt"><input type="button" id = "mita" value="都営三田線" class="mitabutton"></div>
+<div style="position: absolute; top: 80px; left:950px; font-size:24pt"><input type="button" id = "mita" value="都営三田線" class="mitabutton"></div>
 <div style="position: absolute; top: 40px; left:30px; font-size:24pt"><input type="button" id = "yomi01" value="読込1" class="yomi1"></div>
 <div style="position: absolute; top: 80px; left:30px; font-size:24pt"><input type="text" id = "text1"></div>
 <div style="position: absolute; top: 100px; left:30px; font-size:24pt"><input type="button" id = "yomi02" value="読込2" class="yomi2"></div>
 <div style="position: absolute; top: 140px; left:30px; font-size:24pt"><input type="text" id = "text2"></div>
 <div style="position: absolute; top: 160; left:30px; font-size:24pt"><input type="button" id = "hyoji0" value="表示" class="hyoji"></div>
+
+<div style="position: absolute; top: 40px; left:600px; font-size:24pt"><input type="button" id = "yomi11" value="読込1" class="yomi11"></div>
+<div style="position: absolute; top: 80px; left:600px; font-size:24pt"><input type="text" id = "text11"></div>
+<div style="position: absolute; top: 100px; left:600px; font-size:24pt"><input type="button" id = "yomi12" value="読込2" class="yomi12"></div>
+<div style="position: absolute; top: 140px; left:600px; font-size:24pt"><input type="text" id = "text12"></div>
+<div style="position: absolute; top: 160; left:600px; font-size:24pt"><input type="button" id = "hyoji10" value="表示" class="hyoji10"></div>
+
 
 
 
@@ -2534,18 +2560,48 @@ demo();
 
 
 
+//目黒線初期設定
+
+document.getElementById("yomi11").addEventListener("click", function () {
+  location.href ="https://04x5f9ykzc.execute-api.ap-northeast-1.amazonaws.com/prod/external-data-url?key=meguro.json";
+}, false);
+
+document.getElementById("yomi12").addEventListener("click", function () {
+
+let element = document.getElementById('text11').value;
+let url = element;
+let url1 = url.toString();
+console.log (url);
 
 
-/////////////////////////////////////ここから目黒線
+if ( url1 =! "" ) {
+url1 = url.toString().replace('{"url":"','');
+url1 = url1.toString().replace('"}','');
+}
 
-var request2 = new XMLHttpRequest();
-request2.open("GET", "https://tokyu-tid.s3.amazonaws.com/meguro.json", true);
-request2.responseType = "text";
+  location.href = url1 ;
 
-request2.onload = () => {
-  if (request2.readyState === request2.DONE) {
-    if (request2.status === 200) {
-var data2 = JSON.parse(request2.responseText);
+}, false);
+
+
+
+	
+if ( localStorage.getItem( 'bajon' ) >= 200 ){
+} else {
+localStorage.clear();
+localStorage.setItem( 'bajon', 200 );
+}
+
+
+document.getElementById("hyoji10").addEventListener("click", function () {
+
+var data02 = document.getElementById('text12').value;
+
+
+///////////////////////////////ここから目黒線
+
+
+var data2 = JSON.parse( data02 );
       console.log(data2);
 
 //在線情報の処理
@@ -3664,11 +3720,8 @@ requesta[m].send(null);
 demo2();
 }
 
-    }
-  }
-};
+}, false);
 
-request2.send(null);
 
 
 /////////////////////////////////////ここから新横浜線
