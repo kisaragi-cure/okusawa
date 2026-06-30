@@ -91,7 +91,24 @@ background-color: #ffffff;
     padding: 7px;
     font-size: 14pt;
 }
-
+.yomi21{
+    width: 100px;
+    height: 2em;
+    padding: 7px;
+    font-size: 14pt;
+}
+.yomi22{
+    width: 100px;
+    height: 2em;
+    padding: 7px;
+    font-size: 14pt;
+}
+.hyoji20{
+    width: 100px;
+    height: 2em;
+    padding: 7px;
+    font-size: 14pt;
+}
 
 
 
@@ -990,20 +1007,27 @@ background-color: #ffffff;
 <div id="so10-09c" style="position: absolute; top: 5615px; left:230px; font-size:12pt; color:#FF0000;"></div>
 
 <div style="position: absolute; top: 5500px; left:300px; font-size:24pt"><input type="button" id = "sotetsu" value="相鉄エリア" class="sotetsubutton"></div>
-<div style="position: absolute; top: 2020px; left:600px; font-size:24pt"><input type="button" id = "dento" value="大井田都エリア" class="dentobutton"></div>
-<div style="position: absolute; top: 2420px; left:800px; font-size:24pt"><input type="button" id = "iketama" value="池多摩エリア" class="iketamabutton"></div>
+<div style="position: absolute; top: -2020px; left:600px; font-size:24pt"><input type="button" id = "dento" value="大井田都エリア" class="dentobutton"></div>
+<div style="position: absolute; top: -2420px; left:800px; font-size:24pt"><input type="button" id = "iketama" value="池多摩エリア" class="iketamabutton"></div>
 <div style="position: absolute; top: 80px; left:950px; font-size:24pt"><input type="button" id = "mita" value="都営三田線" class="mitabutton"></div>
 <div style="position: absolute; top: 40px; left:30px; font-size:24pt"><input type="button" id = "yomi01" value="読込1" class="yomi1"></div>
 <div style="position: absolute; top: 80px; left:30px; font-size:24pt"><input type="text" id = "text1"></div>
 <div style="position: absolute; top: 100px; left:30px; font-size:24pt"><input type="button" id = "yomi02" value="読込2" class="yomi2"></div>
 <div style="position: absolute; top: 140px; left:30px; font-size:24pt"><input type="text" id = "text2"></div>
-<div style="position: absolute; top: 160; left:30px; font-size:24pt"><input type="button" id = "hyoji0" value="表示" class="hyoji"></div>
+<div style="position: absolute; top: 160px; left:30px; font-size:24pt"><input type="button" id = "hyoji0" value="表示" class="hyoji"></div>
 
 <div style="position: absolute; top: 40px; left:600px; font-size:24pt"><input type="button" id = "yomi11" value="読込1" class="yomi11"></div>
 <div style="position: absolute; top: 80px; left:600px; font-size:24pt"><input type="text" id = "text11"></div>
 <div style="position: absolute; top: 100px; left:600px; font-size:24pt"><input type="button" id = "yomi12" value="読込2" class="yomi12"></div>
 <div style="position: absolute; top: 140px; left:600px; font-size:24pt"><input type="text" id = "text12"></div>
-<div style="position: absolute; top: 160; left:600px; font-size:24pt"><input type="button" id = "hyoji10" value="表示" class="hyoji10"></div>
+<div style="position: absolute; top: 160px; left:600px; font-size:24pt"><input type="button" id = "hyoji10" value="表示" class="hyoji10"></div>
+
+
+<div style="position: absolute; top: 4000px; left:30px; font-size:24pt"><input type="button" id = "yomi21" value="読込1" class="yomi21"></div>
+<div style="position: absolute; top: 4040px; left:30px; font-size:24pt"><input type="text" id = "text21"></div>
+<div style="position: absolute; top: 4060px; left:30px; font-size:24pt"><input type="button" id = "yomi22" value="読込2" class="yomi22"></div>
+<div style="position: absolute; top: 4100px; left:30px; font-size:24pt"><input type="text" id = "text22"></div>
+<div style="position: absolute; top: 4120px; left:30px; font-size:24pt"><input type="button" id = "hyoji20" value="表示" class="hyoji20"></div>
 
 
 
@@ -1025,16 +1049,14 @@ document.getElementById("sotetsu").addEventListener("click", function () {
 }, false);
 
 document.getElementById("dento").addEventListener("click", function () {
-  location.href ="https://kisaragi-cure.github.io/takatsu/";
-}, false);
+  }, false);
 
 document.getElementById("mita").addEventListener("click", function () {
   location.href ="https://kisaragi-cure.github.io/ToeiMita/";
 }, false);
 
 document.getElementById("iketama").addEventListener("click", function () {
-  location.href ="https://kisaragi-cure.github.io/tokyu/";
-}, false);
+  }, false);
 
 document.getElementById("yomi01").addEventListener("click", function () {
   location.href ="https://04x5f9ykzc.execute-api.ap-northeast-1.amazonaws.com/prod/external-data-url?key=toyoko.json";
@@ -1225,8 +1247,6 @@ case '89':
 case '90':
 	des = "日";
 	break;
-case '92':
-	des = "倉";
 case '93':
 	des = "菊";
 	break;
@@ -3724,19 +3744,37 @@ demo2();
 
 }, false);
 
+///新横浜線初期設定
+document.getElementById("yomi21").addEventListener("click", function () {
+  location.href ="https://04x5f9ykzc.execute-api.ap-northeast-1.amazonaws.com/prod/external-data-url?key=shinyokohama.json";
+}, false);
 
+document.getElementById("yomi22").addEventListener("click", function () {
+
+let element = document.getElementById('text21').value;
+let url = element;
+let url1 = url.toString();
+console.log (url);
+
+
+if ( url1 =! "" ) {
+url1 = url.toString().replace('{"url":"','');
+url1 = url1.toString().replace('"}','');
+}
+
+  location.href = url1 ;
+
+}, false);
+
+document.getElementById("hyoji20").addEventListener("click", function () {
+
+var data03 = document.getElementById('text22').value;
 
 /////////////////////////////////////ここから新横浜線
 
-var request3 = new XMLHttpRequest();
-request3.open("GET", "https://external-data.sotetsuapp.com/tid/tokyu/shinyokohama.json", true);
-request3.responseType = "text";
 
-request3.onload = () => {
-  if (request3.readyState === request3.DONE) {
-    if (request3.status === 200) {
-var data3 = JSON.parse(request3.responseText);
-      console.log(data3);
+var data3 = JSON.parse( data03 );
+
 
 //在線情報の処理
 let info = '';
@@ -4451,21 +4489,10 @@ demo2();
 
 
 
-var YY = sessionStorage.getItem('Y0');
-window.scrollTo(0, YY );
+
+}, false);
 
 
-
-sleepSetInterval(2000, () =>{
-      sessionStorage.setItem('Y0',window.pageYOffset) ;
-}
-, 7)
-
-    }
-  }
-};
-
-request3.send(null);
 
 /////////////////////////////////////ここから大井町線
 
